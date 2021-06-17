@@ -1,0 +1,32 @@
+{
+  "name": "jazz-server",
+  "version": "1.0.0",
+  "description": "API for rating students and instructors",
+  "main": "index.js",
+  "scripts": {
+    "start-prod": "node src/index.js",
+    "start": "nodemon src/index.js",
+    "db:migrate": "cross-var \"cd db-migrations && pg-migrator postgres://%PGUSER%:%PGPASSWORD%@%PGHOST%:%PGPORT%/%PGDATABASE%\"",
+    "test": "jest --force-exit"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "express-validator": "^6.11.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.6.0"
+  },
+  "devDependencies": {
+    "cross-var": "^1.1.0",
+    "jest": "^27.0.1",
+    "nodemon": "^2.0.7",
+    "pg-migrator": "^1.0.5",
+    "supertest": "^6.1.3"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
+  }
+}

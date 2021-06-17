@@ -1,0 +1,32 @@
+version: "3"
+services:
+  db:
+    # image: postgres:13
+    build:
+      context: ./db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./jazz-server-final-project:/var/lib/postgresql/data/empty
+    environment:
+      POSTGRES_PASSWORD: password
+      PGDATA: /tmp
+  server:
+    build:
+      context: ./src
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    command: npm run start
+    environment:
+      PGHOST: db
+      PGUSER: postgres
+      PGPASSWORD: password
+      PGPORT: 5432
+      PGDATABASE: postgres
+      jwtSecret: "cat123"
+
+    volumes:
+      - ./src:/app
+      - /app/node_modules
