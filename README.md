@@ -6,6 +6,3 @@ This is the API and database to accompany the front end for the Jazz-band app fi
 Run <code> docker-compose up </code>
 The server and database should work automatically.
 
-## Deployed 
-
-This server is deployed at https://jazzband-api.herokuapp.com/
